@@ -24,8 +24,14 @@ pipeline {
     }
 
     stages {
-        stage('Bla') {
+        stage('Checkout') {
             steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
             }
         }
     }
